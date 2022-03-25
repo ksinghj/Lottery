@@ -79,18 +79,18 @@ describe('Lottery contract', () => {
     }
   })
 
-  // it('Should fail if !manager calls pick winner', async () => {
-  //   try {
-  //     await lottery.methods.pickWinner().send({
-  //       from: player1,
-  //     })
+  it('Should fail if !manager calls pick winner', async () => {
+    try {
+      await lottery.methods.pickWinner().send({
+        from: player1,
+      })
 
-  //     // above should throw error, but we make sure test fails if not
-  //     assert(false)
-  //   } catch (err) {
-  //     assert(err)
-  //   }
-  // })
+      // above should throw error, but we make sure test fails if not
+      assert(false)
+    } catch (err) {
+      assert(err)
+    }
+  })
 
   it('Should send prize to the winner, and reset the players', async () => {
     await lottery.methods.enter().send({
